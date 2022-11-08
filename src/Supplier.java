@@ -13,6 +13,28 @@ public class Supplier implements Runnable {
     @Override
     public void run() {
 
+        while (true) {
+            meetingRoom.roomLock.lock();
+            try {
+                if (meetingRoom.datum == null) {
+
+                    System.out.println("----> Supplier #" + ID + " has dropped off " + datum.getData());
+                    meetingRoom.datum = datum;
+                    meetingRoom.roomLock.unlock();
+
+                } else {
+                    System.out.println("Supplier #" + ID + ": meeting room is full :(");
+                    meetingRoom.roomLock.unlock();
+                }
+
+
+                Thread.sleep((int) (1000 * Math.random()));
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 }

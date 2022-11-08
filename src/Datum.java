@@ -5,7 +5,7 @@ public class Datum {
 
     public int getData() {
         return data;
-}
+    }
 
     public int getID() {
         return ID;
