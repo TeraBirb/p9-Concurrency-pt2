@@ -8,17 +8,22 @@ public class Consumer {
         return ID;
     }
 
+    public void setData(int data) {
+        this.data = data;
+    }
+
     public void setSubscribed(boolean subscribed) {
         this.subscribed = subscribed;
     }
+
+    public boolean isSubscribed() {return this.subscribed;};
 
     public Consumer(int ID) {
         this.ID = ID;
     }
 
-    // will be called by MeetingRoom when the room has data intended for this Consumer
     public void receive(int data) {
-        System.out.println("---> Consumer #" + ID + " has recieved " + data + "!");
+        System.out.println("---> Consumer #" + ID + " received " + data);
     }
 
 

@@ -16,10 +16,10 @@ public class Supplier implements Runnable {
         while (true) {
             meetingRoom.roomLock.lock();
             try {
-                if (meetingRoom.datum == null) {
+                if (meetingRoom.data.size() < 3) {
 
                     System.out.println("----> Supplier #" + ID + " has dropped off " + datum.getData());
-                    meetingRoom.datum = datum;
+                    meetingRoom.data.add(datum);
                     meetingRoom.roomLock.unlock();
 
                 } else {
